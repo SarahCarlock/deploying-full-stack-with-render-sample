@@ -3,6 +3,13 @@ const cors = require('cors'); // import the CORS library to allow Cross-origin r
 const app = express(); // create an instance of the express module (app is the conventional variable name used)
 var bodyParser = require('body-parser');
 
+app.get("/", (req, res) => res.type('html').send(html));
+// Add a new route for the health endpoint 
+app.get("/health", (req, res) => { 
+
+  res.sendStatus(200); 
+
+});
 const services = require('./services/requests')
 
 const PORT = process.env.PORT || 5000; // use either the host env var port (PORT) provided by Render or the local port (5000) on your machine
